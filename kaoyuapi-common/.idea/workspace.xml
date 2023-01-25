@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6ab57374-dd24-4950-bb39-c02272abd855" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$PROJECT_DIR$/../../../mavenjar" />
+        <option name="mavenHome" value="$USER_HOME$/Library/maven" />
+        <option name="userSettingsFile" value="$USER_HOME$/Library/maven/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="skipTests" value="true" />
+  </component>
+  <component name="ProjectId" id="2KU9a0Tu8220SStBDNzZH6QdQ96" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/kaoyu/kaoyuapicommon/service" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/kaoyu/kaoyuapicommon/service" />
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
+  </component>
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="UTF-8" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ab57374-dd24-4950-bb39-c02272abd855" name="Default Changelist" comment="" />
+      <created>1674018353747</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1674018353747</updated>
+      <workItem from="1674018355787" duration="3032000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="480" y="389" key="#Project_Structure" timestamp="1674019928475">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="480" y="389" key="#Project_Structure/-1440.-654.1440.2535/0.25.2560.1415@0.25.2560.1415" timestamp="1674019928475" />
+    <state x="990" y="819" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1674019156398">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state x="990" y="819" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/-1440.-654.1440.2535/0.25.2560.1415@0.25.2560.1415" timestamp="1674019156398" />
+    <state width="1821" height="313" key="GridCell.Tab.0.bottom" timestamp="1674021356628">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="1821" height="313" key="GridCell.Tab.0.bottom/-1440.-654.1440.2535/0.25.2560.1415@0.25.2560.1415" timestamp="1674021356628" />
+    <state width="1821" height="313" key="GridCell.Tab.0.center" timestamp="1674021356627">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="1821" height="313" key="GridCell.Tab.0.center/-1440.-654.1440.2535/0.25.2560.1415@0.25.2560.1415" timestamp="1674021356627" />
+    <state width="1821" height="313" key="GridCell.Tab.0.left" timestamp="1674021356627">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="1821" height="313" key="GridCell.Tab.0.left/-1440.-654.1440.2535/0.25.2560.1415@0.25.2560.1415" timestamp="1674021356627" />
+    <state width="1821" height="313" key="GridCell.Tab.0.right" timestamp="1674021356628">
+      <screen x="0" y="25" width="2560" height="1415" />
+    </state>
+    <state width="1821" height="313" key="GridCell.Tab.0.right/-1440.-654.1440.2535/0.25.2560.1415@0.25.2560.1415" timestamp="1674021356628" />
+  </component>
+</project>

@@ -1,0 +1,8 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /api
+kaoyuapi:
+  client:
+    access-key: cky
+    secret-key: abc

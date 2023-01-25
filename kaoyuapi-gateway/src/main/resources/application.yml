@@ -1,0 +1,41 @@
+server:
+  port: 8082
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: trace
+spring:
+  cloud:
+    gateway:
+      routes:
+#        - id: add_request_header_route
+#          uri: http://127.0.0.1:8001
+#          predicates:
+#            - Path=/api/**
+#          filters:
+#            - AddRequestHeader=kaoyu, blue
+#            - AddRequestParameter=name, 666
+#            - name: CircuitBreaker
+#              args:
+#                name: myCircuitBreaker
+#                fallbackUri: forward:/fallback
+##                - RewritePath=/consumingServiceEndpoint, /backingServiceEndpoint
+#        - id: kaoyu-fallback
+#          uri: https://yupi.icu
+#          predicates:
+#            - Path=/fallback
+        - id: api_route
+          uri: http://127.0.0.1:8001
+          predicates:
+            - Path=/api/**
+dubbo:
+  registry:
+    id: nacos-registry
+    address: nacos://127.0.0.1:8848
+  application:
+    name: kaoyuapi
+  protocol:
+    name: dubbo
+    port: -1

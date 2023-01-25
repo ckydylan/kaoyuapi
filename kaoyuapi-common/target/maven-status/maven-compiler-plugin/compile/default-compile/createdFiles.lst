@@ -1,0 +1,8 @@
+com/kaoyu/kaoyuapicommon/service/InnerInterfaceInfoService.class
+com/kaoyu/kaoyuapicommon/service/InnerUserInterfaceInfoService.class
+com/kaoyu/kaoyuapicommon/model/vo/UserVO.class
+com/kaoyu/kaoyuapicommon/model/enums/InterfaceInfoStatusEnum.class
+com/kaoyu/kaoyuapicommon/service/InnerUserService.class
+com/kaoyu/kaoyuapicommon/model/entity/InterfaceInfo.class
+com/kaoyu/kaoyuapicommon/model/entity/UserInterfaceInfo.class
+com/kaoyu/kaoyuapicommon/model/entity/User.class

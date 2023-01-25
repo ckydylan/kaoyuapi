@@ -1,0 +1,34 @@
+package com.kaoyu.project.service.impl.inner;
+
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.kaoyu.kaoyuapicommon.model.entity.User;
+import com.kaoyu.kaoyuapicommon.service.InnerUserService;
+import com.kaoyu.project.common.ErrorCode;
+import com.kaoyu.project.exception.BusinessException;
+import com.kaoyu.project.mapper.UserMapper;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.dubbo.config.annotation.DubboService;
+
+import javax.annotation.Resource;
+
+/**
+ * @Author: cky
+ * @Date: 2023/1/18 13:44
+ * @Description:
+ */
+@DubboService
+public class InnerUserServiceImpl implements InnerUserService {
+
+    @Resource
+    private UserMapper userMapper;
+
+    @Override
+    public User getInvokeUser(String accessKey) {
+        if (StringUtils.isAnyBlank(accessKey)) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR);
+        }
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("accessKey", accessKey);
+        return userMapper.selectOne(queryWrapper);
+    }
+}
