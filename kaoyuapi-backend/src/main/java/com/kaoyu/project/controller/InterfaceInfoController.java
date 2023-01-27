@@ -6,6 +6,9 @@ import com.google.gson.Gson;
 import com.kaoyu.kaoyuapiclientsdk.client.KaoYuApiClient;
 import com.kaoyu.kaoyuapicommon.model.entity.InterfaceInfo;
 import com.kaoyu.kaoyuapicommon.model.entity.User;
+import com.kaoyu.kaoyuapicommon.model.entity.requestparams.ImageRequestParams;
+import com.kaoyu.kaoyuapicommon.model.entity.requestparams.UserRequestParams;
+import com.kaoyu.kaoyuapicommon.model.entity.requestparams.WallpaperRequestParams;
 import com.kaoyu.project.annotation.AuthCheck;
 import com.kaoyu.project.common.BaseResponse;
 import com.kaoyu.project.common.ErrorCode;
@@ -28,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 接口管理
@@ -46,8 +50,10 @@ public class InterfaceInfoController {
     private UserService userService;
 
     @Resource
-    private KaoYuApiClient kaoYuApiClient;
+    private KaoYuApiClient tempClient;
 
+    private Gson gson = new Gson();
+//    private KaoYuApiClient tempClient;
     // region 增删改查
 
     /**
@@ -223,13 +229,13 @@ public class InterfaceInfoController {
         if (oldInterfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-        //判断该接口是否可以调用
-        com.kaoyu.kaoyuapiclientsdk.model.User user = new com.kaoyu.kaoyuapiclientsdk.model.User();
+        //判断该接口是否可以调用 todo
+        /* User user = new com.kaoyu.kaoyuapiclientsdk.model.User();
         user.setUsername("kaoyu");
         String username = kaoYuApiClient.getUserNameByPost(user);
         if (StringUtils.isBlank(username)) {
             throw new BusinessException(ErrorCode.SYSTEM_ERROR, "接口验证失败");
-        }
+        }*/
         InterfaceInfo interfaceInfo = new InterfaceInfo();
         interfaceInfo.setId(id);
         interfaceInfo.setStatus(InterfaceInfoStatusEnum.ONLINE.getValue());
@@ -274,8 +280,8 @@ public class InterfaceInfoController {
      */
     @PostMapping("/invoke")
     public BaseResponse<Object> invokeInterfaceInfo(@RequestBody InterfaceInfoInvokeRequest interfaceInfoInvokeRequest,
-                                                      HttpServletRequest request) {
-        if (interfaceInfoInvokeRequest == null ||interfaceInfoInvokeRequest.getId()<=0) {
+                                                    HttpServletRequest request) {
+        if (interfaceInfoInvokeRequest == null || interfaceInfoInvokeRequest.getId() <= 0) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR);
         }
         long id = interfaceInfoInvokeRequest.getId();
@@ -285,17 +291,40 @@ public class InterfaceInfoController {
         if (oldInterfaceInfo == null) {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
-        if (oldInterfaceInfo.getStatus() == InterfaceInfoStatusEnum.OFFLINE.getValue()){
-            throw new BusinessException(ErrorCode.PARAMS_ERROR,"接口已关闭");
+        if (oldInterfaceInfo.getStatus() == InterfaceInfoStatusEnum.OFFLINE.getValue()) {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "接口已关闭");
         }
         final User loginUser = userService.getLoginUser(request);
         final String accessKey = loginUser.getAccessKey();
         final String secretKey = loginUser.getSecretKey();
-        KaoYuApiClient tempClient = new KaoYuApiClient(accessKey,secretKey);
-        Gson gson = new Gson();
-        final com.kaoyu.kaoyuapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.kaoyu.kaoyuapiclientsdk.model.User.class);
-        final String userNameByPost = tempClient.getUserNameByPost(user);
-        return ResultUtils.success(userNameByPost);
+        tempClient = new KaoYuApiClient(accessKey, secretKey);
+
+
+        //todo
+        Object result = invokeMethodById(oldInterfaceInfo.getName(), userRequestParams);
+//        final com.kaoyu.kaoyuapiclientsdk.model.User user = gson.fromJson(userRequestParams, com.kaoyu.kaoyuapiclientsdk.model.User.class);
+//        final String userNameByPost = tempClient.getUserNameByPost(user);
+//        String s = tempClient.randomImages(interfaceInfoInvokeRequest.getUserRequestParams());
+//        return ResultUtils.success(userNameByPost);
+        return ResultUtils.success(result);
+    }
+
+
+    public Object invokeMethodById(String methodName, String userRequestParams) {
+        switch (Objects.requireNonNull(InvokedMethodName.getByValue(methodName))) {
+            case GET_USERNAME_BY_POST:
+                UserRequestParams user = gson.fromJson(userRequestParams, UserRequestParams.class);
+                final String userNameByPost = tempClient.getUserNameByPost(user);
+                return userNameByPost == null ? "请输入参数" : userNameByPost;
+            case GET_RANDOM_IMAGES:
+                String s = tempClient.randomImages(gson.fromJson(userRequestParams, ImageRequestParams.class));
+                return s;
+            case GET_RANDOM_WALLPAPER:
+                return tempClient.randomWallpaper(gson.fromJson(userRequestParams, WallpaperRequestParams.class));
+            default:
+                break;
+        }
+        return null;
     }
 
 }

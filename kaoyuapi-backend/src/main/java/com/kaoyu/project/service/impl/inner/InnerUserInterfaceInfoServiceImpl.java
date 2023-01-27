@@ -12,7 +12,6 @@ import javax.annotation.Resource;
  * @Description:
  */
 @DubboService
-
 public class InnerUserInterfaceInfoServiceImpl implements InnerUserInterfaceInfoService {
 
     @Resource

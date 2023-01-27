@@ -1,6 +1,6 @@
 package com.kaoyu.kaoyuapiinterface.controller;
 
-import com.kaoyu.kaoyuapiclientsdk.model.User;
+import com.kaoyu.kaoyuapicommon.model.entity.requestparams.UserRequestParams;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +31,7 @@ public class NameController {
     }
 
     @PostMapping("/user")
-    public String getUserNameByPost(@RequestBody User user, HttpServletRequest request) {
+    public String getUserNameByPost(@RequestBody UserRequestParams user, HttpServletRequest request) {
 //        String accessKey = request.getHeader("accessKey");
 //        String nonce = request.getHeader("nonce");
 //        String timestamp = request.getHeader("timestamp");
@@ -48,8 +48,10 @@ public class NameController {
 //        if (!sign.equals(serverSign)){
 //            throw new RuntimeException("无权限");
 //        }
-        String result =  "POST 用户名是 : " + user.getUsername();
+//        UserVO userVO = new UserVO();
+//        BeanUtils.copyProperties(user,userVO);
+        String result =  "你的名字 : \n\r" + user.getUsername();
+
         return result;
     }
-
 }
